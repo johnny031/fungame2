@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fungame2</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div style="padding:18px 0 0 18px">
+      <button id="white_words">白</button>
+      <button id="black_words">黑</button>
+      <button id="generate_code">看密碼</button>
+      <button id="start" disabled>開始</button>
+    </div>
+    <div id="words_div"></div>
+    <div id="code_div"></div>
+    <div id="count_div" style="padding-left: 15px;">
+      白隊猜對 <span id="w_right">0</span> 次，猜錯
+      <span id="w_wrong">0</span> 次 <br />
+      黑隊猜對 <span id="b_right">0</span> 次，猜錯
+      <span id="b_wrong">0</span> 次
+    </div>
+    <br />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <h1 id="whose_turn">白隊出題</h1>
+          <table id="input_table" cellspacing="0">
+            <tr>
+              <th class="text-center" style="width:70%">
+                提示
+              </th>
+              <th class="text-center" id="firstGuess">
+                黑
+              </th>
+              <th class="text-center" id="secondGuess">
+                白
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" id="hint1" disabled />
+              </td>
+              <td>
+                <input type="number" id="first1" disabled />
+              </td>
+              <td>
+                <input type="number" id="second1" disabled />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" id="hint2" disabled />
+              </td>
+              <td>
+                <input type="number" id="first2" disabled />
+              </td>
+              <td>
+                <input type="number" id="second2" disabled />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" id="hint3" disabled />
+              </td>
+              <td>
+                <input type="number" id="first3" disabled />
+              </td>
+              <td>
+                <input type="number" id="second3" disabled />
+              </td>
+            </tr>
+          </table>
+
+          <button id="ok" disabled>OK</button>
+        </div>
+        <div class="col-md-8">
+          <div class="container">
+            <h1>白隊：</h1>
+            <table id="white_table">
+              <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+              </tr>
+            </table>
+
+            <br />
+            <br />
+            <h1>黑隊：</h1>
+            <table id="black_table">
+              <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
