@@ -4,6 +4,10 @@
 #input_table {
   margin: 0;
 }
+#white_table tr:nth-child(even),
+#black_table tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
 #white_table,
 #black_table,
 #input_table {
