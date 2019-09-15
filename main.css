@@ -56,8 +56,6 @@ input {
   font-family: "microsoft jhenghei" !important;
   border: 0;
 }
-@media only screen and (max-width: 768px) {
-  .col-md-8 {
-    padding-bottom: 75px;
-  }
+.col-md-8 {
+  padding-bottom: 75px;
 }
