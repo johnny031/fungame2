@@ -15,11 +15,13 @@
   <body>
     <div style="padding:18px 0 0 18px">
       <button id="show_words">白隊題目</button>
-      <button id="generate_code">密碼</button>
-      <button id="start" disabled>開始</button>
+      <button id="time_limit">限時:開</button>
+      <button id="generate_code">密碼</button>     
+      <button id="start" disabled>開始</button>      
     </div>
     <div id="words_div"></div>
-    <div id="code_div"></div>
+    <div id="code_div" style="display: none;"></div>
+    <div id="time_left" style="display: none;">剩餘時間：<span id="time">30</span></div>
     <div id="count_div" style="padding-left: 15px;">
       白隊猜對 <span id="w_right">0</span> 次，猜錯
       <span id="w_wrong">0</span> 次 <br />

@@ -7,12 +7,32 @@ var b_right_count = 0;
 var b_wrong_count = 0;
 var w_right_count = 0;
 var w_wrong_count = 0;
+var time_limit = true;
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+function clear_round() {
+  $("#hint1, #hint2, #hint3").attr("disabled", true);
+  $("#time_left").slideUp("slow");
+}
+function startTimer(duration) {
+  $("#time").text("30");
+  var timer = duration,
+    seconds;
+  var interval = setInterval(function() {
+    seconds = parseInt(timer % 60, 10);
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    $("#time").text(seconds);
+    if (--timer < -1) {
+      clearInterval(interval);
+      $("#time").text("00");
+      clear_round();
+    }
+  }, 1000);
 }
 function Order(array, order, key) {
   array.sort(function(a, b) {
@@ -60,12 +80,12 @@ $(document).ready(function() {
       $("#show_words").hide();
     }
     clicked_counts++;
-    $("#words_div").toggle();
+    $("#words_div").slideToggle();
   });
   $("#generate_code").on("click", function() {
     timesClicked++;
     if (timesClicked % 2 === 0) {
-      $("#code_div").html("");
+      $("#code_div").slideUp();
       $(this).attr("disabled", true);
       if (code.length === 0) {
         $("#start").attr("disabled", false);
@@ -76,6 +96,7 @@ $(document).ready(function() {
       shuffle(numbers);
       pre_code = numbers;
       $("#code_div").html(pre_code.slice(0, 3));
+      $("#code_div").slideDown();
     }
   });
   $("#start").on("click", function() {
@@ -89,12 +110,16 @@ $(document).ready(function() {
     $(this).attr("disabled", true);
     $("#generate_code").attr("disabled", false);
     $("#ok").attr("disabled", false);
+    if(time_limit){
+      startTimer(29);
+      $("#time_left").slideDown("slow");
+    }
   });
   $("#ok").on("click", function() {
     //if any cell is empty
     var empty = $(this)
       .parent()
-      .find("input")
+      .find("#first1, #first2, #first3, #second1, #second2, #second3")
       .filter(function() {
         return this.value === "";
       });
@@ -168,7 +193,6 @@ $(document).ready(function() {
         "</td>" +
         "</tr>"
     );
-
     //clear
     $("input").val("");
     code = [];
@@ -176,5 +200,9 @@ $(document).ready(function() {
       $("#start").attr("disabled", false);
     }
     $(this).attr("disabled", true);
+  });
+  $("#time_limit").on("click", function() {
+    time_limit = !time_limit;
+    time_limit ? $(this).html("限時:開") : $(this).html("限時:關");
   });
 });

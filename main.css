@@ -13,6 +13,9 @@
 #input_table {
   width: 100%;
 }
+input:disabled {
+  background: #dddddd;
+}
 table,
 th,
 td {
@@ -20,14 +23,17 @@ td {
   border-collapse: collapse;
 }
 #words_div,
-#code_div {
-  margin: 18px;
+#code_div,
+#time_left {
+  margin: 18px 18px 0 18px;
 }
 th,
 #code_div,
 #show_words,
 #generate_code,
-#start {
+#start,
+#time_limit,
+#time_left {
   font-size: 20px;
   font-family: "microsoft jhenghei";
 }
@@ -49,6 +55,9 @@ h1,
 #count_div {
   font-size: 26px !important;
   font-family: "microsoft jhenghei";
+}
+#count_div {
+  padding-top: 18px;
 }
 td {
   font-size: 20px;
