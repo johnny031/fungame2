@@ -14,8 +14,8 @@
   width: 100%;
 }
 input:disabled {
-  background-color: #dddddd;
-  color: black;
+  background-color: #dddddd !important;
+  color: black !important;
 }
 table,
 th,
