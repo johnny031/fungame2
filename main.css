@@ -14,8 +14,10 @@
   width: 100%;
 }
 input:disabled {
-  background-color: #dddddd !important;
-  color: black !important;
+  -webkit-text-fill-color: rgba(0, 0, 0, 1);
+  -webkit-opacity: 1;
+  background-color: #dddddd;
+  color: black;
 }
 table,
 th,
