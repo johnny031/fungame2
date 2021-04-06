@@ -14,8 +14,11 @@
   width: 100%;
 }
 input:disabled {
+  -webkit-appearance: none;
   -webkit-text-fill-color: rgba(0, 0, 0, 1);
   -webkit-opacity: 1;
+  -webkit-border-radius: 0;
+  border-radius: 0;
   background-color: #dddddd;
   color: black;
 }
