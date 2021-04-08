@@ -23,6 +23,9 @@ textarea {
   background-color: #dddddd;
   color: black;
 }
+input[disabled]::placeholder {
+  -webkit-text-fill-color: rgb(243, 4, 4);
+}
 table,
 th,
 td {
