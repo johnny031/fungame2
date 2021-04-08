@@ -8,6 +8,7 @@ var b_wrong_count = 0;
 var w_right_count = 0;
 var w_wrong_count = 0;
 var time_limit = true;
+var interval;
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -16,6 +17,8 @@ function shuffle(a) {
   return a;
 }
 function clear_round() {
+  clearInterval(interval);
+  $("#time").text("00");
   $("#hint1, #hint2, #hint3").attr("disabled", true);
   $("#time_left").slideUp("slow");
 }
@@ -23,13 +26,11 @@ function startTimer(duration) {
   $("#time").text("30");
   var timer = duration,
     seconds;
-  var interval = setInterval(function() {
+  interval = setInterval(function() {
     seconds = parseInt(timer % 60, 10);
     seconds = seconds < 10 ? "0" + seconds : seconds;
     $("#time").text(seconds);
     if (--timer < -1) {
-      clearInterval(interval);
-      $("#time").text("00");
       clear_round();
     }
   }, 1000);
@@ -200,6 +201,10 @@ $(document).ready(function() {
       $("#start").attr("disabled", false);
     }
     $(this).attr("disabled", true);
+    //clear interval if  it's timing
+    if(!$("#time_left").is(":hidden")) {
+      clear_round();
+    };
   });
   $("#time_limit").on("click", function() {
     time_limit = !time_limit;
